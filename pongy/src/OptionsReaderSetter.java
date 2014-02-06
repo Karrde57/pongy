@@ -1,5 +1,5 @@
 
-public class optionsReader
+public class OptionsReaderSetter
 {
 
 	static public String[] get()
