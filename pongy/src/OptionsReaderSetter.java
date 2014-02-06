@@ -4,7 +4,9 @@ public class OptionsReaderSetter
 
 	static public String[] get()
 	{
-		//TODO fonction de read du xml
+		
+
+		
 		return null;
 	}
 	static public void set()
