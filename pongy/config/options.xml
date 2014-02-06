@@ -1,11 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<up1>Z</up1>
-<down1>S</down1>
-<up2></up2>
-<down2></down2>
-<fps>250</fps>
-<window_size_x>800</window_sizex>
-<window_size_y>600</window_size_y>
-
-</xml>
+<options>
+	<up1>44</up1>
+	<down1>31</down1>
+	<up2>72</up2>
+	<down2>80</down2>
+	<fps>100</fps>
+	<window_size_x>800</window_size_x>
+	<window_size_y>600</window_size_y>
+</options>
