@@ -18,7 +18,7 @@ public class OptionsReaderSetter
 	    Document document = null;
 		try
 	      {
-	         document = sxb.build(new File("C:\\Users\\Hp\\Documents\\workspace\\repository\\pongy\\pongy\\config\\options.xml"));
+	         document = sxb.build(new File("D:\\workspace\\repositorygit\\pongy\\pongy\\config\\options.xml"));
 	      }
 	      catch(Exception e)
 	      {
