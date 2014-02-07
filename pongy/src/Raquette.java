@@ -5,21 +5,27 @@ public class Raquette extends Rectangle
 {
 	private static int TAILLE_X = 10;
 	private static int TAILLE_Y = 200;
-	private static int INIT_POS_X= 0;
-	private static int INIT_POS_Y = 300;
+
 	
-	public Raquette()
-	{
-		super(INIT_POS_X, INIT_POS_Y, TAILLE_X, TAILLE_Y);
+	public static int getTAILLE_X() {
+		return TAILLE_X;
 	}
-	public void monter()
+	public static int getTAILLE_Y() {
+		return TAILLE_Y;
+	}
+	public Raquette(int pos_x, int pos_y)
 	{
-		this.setY(this.getY()-1);
+		super(pos_x, pos_y, TAILLE_X, TAILLE_Y);
+	}
+	public void monter(float f)
+	{
+		this.setY(this.getY()-f);
 		
 	}
-	public void descendre()
+	public void descendre(float pixel)
 	{
-		this.setY(this.getY()+1);
+		this.setY(this.getY()+pixel);
+
 	}
 
 }

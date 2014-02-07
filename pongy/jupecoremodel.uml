@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="ASCII"?>
+<uml:Model xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xmi:id="_1847652068" name="model">
+  <packagedElement xsi:type="uml:Package" xmi:id="JupePrimititvesTypesPackage_874771256" name="JupePrimititvesTypesPackage">
+    <packageMerge xmi:id="unnamed_element_44769280">
+      <mergedPackage href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#_0"/>
+    </packageMerge>
+    <packagedElement xsi:type="uml:PrimitiveType" xmi:id="JupePrimititvesTypesPackage.boolean_818012510" name="boolean"/>
+    <packagedElement xsi:type="uml:PrimitiveType" xmi:id="JupePrimititvesTypesPackage.byte_145947476" name="byte"/>
+    <packagedElement xsi:type="uml:PrimitiveType" xmi:id="JupePrimititvesTypesPackage.char_512904258" name="char"/>
+    <packagedElement xsi:type="uml:PrimitiveType" xmi:id="JupePrimititvesTypesPackage.double_382505148" name="double"/>
+    <packagedElement xsi:type="uml:PrimitiveType" xmi:id="JupePrimititvesTypesPackage.float_1345466965" name="float"/>
+    <packagedElement xsi:type="uml:PrimitiveType" xmi:id="JupePrimititvesTypesPackage.int_260477845" name="int"/>
+    <packagedElement xsi:type="uml:PrimitiveType" xmi:id="JupePrimititvesTypesPackage.long_1279468329" name="long"/>
+    <packagedElement xsi:type="uml:PrimitiveType" xmi:id="JupePrimititvesTypesPackage.short_1270448092" name="short"/>
+  </packagedElement>
+  <packagedElement xsi:type="uml:Package" xmi:id="JupeUnresolvedTypesPackage_2138663770" name="JupeUnresolvedTypesPackage"/>
+  <packagedElement xsi:type="uml:Class" xmi:id="GameManager_1595540465" name="GameManager">
+    <ownedAttribute xmi:id="GameManager._titre_1540557255" name="_titre" visibility="private" isStatic="true" type="java.lang.String_598149351">
+      <defaultValue xsi:type="uml:LiteralInteger"/>
+    </ownedAttribute>
+    <ownedOperation xmi:id="GameManager.GameManager_1094899281" name="GameManager" visibility="public">
+      <ownedParameter name="" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="GameManager.initStatesList_1458079447" name="initStatesList" visibility="public">
+      <ownedParameter name="" direction="return"/>
+      <ownedParameter xmi:id="GameManager.initStatesList.arg0_680391401" name="arg0"/>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xsi:type="uml:Package" xmi:id="java_1542794422" name="java">
+    <packagedElement xsi:type="uml:Package" xmi:id="java.lang_223004126" name="lang">
+      <packagedElement xsi:type="uml:Class" xmi:id="java.lang.String_598149351" name="String"/>
+    </packagedElement>
+  </packagedElement>
+  <packagedElement xsi:type="uml:Package" xmi:id="org_2135339979" name="org">
+    <packagedElement xsi:type="uml:Package" xmi:id="org.newdawn_1175939363" name="newdawn">
+      <packagedElement xsi:type="uml:Package" xmi:id="org.newdawn.slick_1648612895" name="slick">
+        <packagedElement xsi:type="uml:Class" xmi:id="org.newdawn.slick.GameContainer_131102402" name="GameContainer"/>
+      </packagedElement>
+    </packagedElement>
+  </packagedElement>
+</uml:Model>
