@@ -35,7 +35,7 @@ public class GameMenu extends BasicGameState
 		// SET FONT
 		try 
 		{
-			InputStream inputStream = ResourceLoader.getResourceAsStream(directoryfile.getParent() + "\\config\\COMICATE.ttf");
+			InputStream inputStream = ResourceLoader.getResourceAsStream("config" + File.separator + "COMICATE.ttf");
 	        Font awtFont = Font.createFont(Font.TRUETYPE_FONT, inputStream);
 	        awtFont = awtFont.deriveFont(24f); // set font size
 	        _font = new TrueTypeFont(awtFont, false);

@@ -35,7 +35,7 @@ public class GameWindow extends BasicGameState
 		File directoryfile = new File(GameManager.class.getProtectionDomain().getCodeSource().getLocation().getPath());
 		try
 		{
-			_oggEffect = AudioLoader.getAudio("OGG", ResourceLoader.getResourceAsStream(directoryfile.getParentFile().toString() + "\\music\\pong.ogg"));
+			_oggEffect = AudioLoader.getAudio("OGG", ResourceLoader.getResourceAsStream("music" + File.separator + "pong.ogg"));
 		} catch (IOException e)
 		{
 			// TODO Auto-generated catch block

@@ -18,7 +18,7 @@ public class OptionsReaderSetter
 	    Document document = null;
 		try
 	      {
-	         document = sxb.build(new File(GameManager.class.getProtectionDomain().getCodeSource().getLocation().getPath()).getParent() + "\\config\\options.xml");
+	         document = sxb.build("config" + File.separator + "options.xml");
 	      }
 	      catch(Exception e)
 	      {
