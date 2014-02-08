@@ -29,13 +29,13 @@ public class GameMenu extends BasicGameState
 	@Override
 	public void init(GameContainer container, StateBasedGame sbg) throws SlickException
 	{
-		 Music openingMenuMusic = new Music(directoryfile.getParentFile().toString() + "\\music\\The_Uprising_Good.ogg");
+		 Music openingMenuMusic = new Music(directoryfile.getParentFile().toString() + File.separator + "music"+File.separator+"The_Uprising_Good.ogg");
 
 		    openingMenuMusic.loop();
 		// SET FONT
 		try 
 		{
-			InputStream inputStream = ResourceLoader.getResourceAsStream("config" + File.separator + "COMICATE.ttf");
+			InputStream inputStream = ResourceLoader.getResourceAsStream("config" + File.separator + "COMICATE.TTF");
 	        Font awtFont = Font.createFont(Font.TRUETYPE_FONT, inputStream);
 	        awtFont = awtFont.deriveFont(24f); // set font size
 	        _font = new TrueTypeFont(awtFont, false);
