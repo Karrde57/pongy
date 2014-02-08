@@ -22,7 +22,7 @@ public class GameMenu extends BasicGameState
 	private int _posycursor,  _posmenu = 0;
 	private static int _POSXCURSOR, _POSXMENU;
 	private Rectangle _cursor;
-	private static String[] _MENUNAME = new String[]{"Play!", "Play with yout friend", "Options", "Credits", "Exit" };
+	private static String[] _MENUNAME = new String[]{"Play!", "Play with yout friend!", "Options", "Credits", "Exit" };
 	static private HashMap<String, Integer> _options = OptionsReaderSetter.get();
 	@Override
 	public void init(GameContainer container, StateBasedGame sbg) throws SlickException
