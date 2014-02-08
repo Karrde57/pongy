@@ -11,15 +11,15 @@ import org.newdawn.slick.state.StateBasedGame;
 
 public class GameWindow extends BasicGameState
 {
-	private static HashMap<String, String> _options = OptionsReaderSetter.get();
-	private static int _ID = 2;
+	private static HashMap<String, Integer> _options = OptionsReaderSetter.get();
+	private static int _ID = 1;
 	private Raquette _raquette1;
 	private Raquette _raquette2;
 	private Balle _balle;
 	private int _score1=0;
 	private int _score2=0;
-	private static int _TAILLEFRAMEX = Integer.parseInt(_options.get("window_size_x"));
-	private static int _TAILLEFRAMEY = Integer.parseInt(_options.get("window_size_y"));
+	private static int _TAILLEFRAMEX = _options.get("window_size_x");
+	private static int _TAILLEFRAMEY = _options.get("window_size_y");
 	private static int _TAILLERAQUETTEX = Raquette.getTAILLE_X();
 	private static int _TAILLERAQUETTEY = Raquette.getTAILLE_Y();;
 	@Override
@@ -40,8 +40,8 @@ public class GameWindow extends BasicGameState
 		g.fill(_raquette1);
 		g.fill(_raquette2);
 		g.fill(_balle);
-		g.drawString(_score1+"", Integer.parseInt(_options.get("window_size_x")) / 4, 100);
-		g.drawString(_score2+"", Integer.parseInt(_options.get("window_size_x")) / 4 * 3, 100);
+		g.drawString(_score1+"", _options.get("window_size_x") / 4, 100);
+		g.drawString(_score2+"", _options.get("window_size_x") / 4 * 3, 100);
 	}
 
 	@Override
@@ -49,7 +49,7 @@ public class GameWindow extends BasicGameState
 	{
 		float fdelta = delta;
 		Input input = container.getInput();
-		if(input.isKeyDown(Integer.parseInt(_options.get("up1"))))
+		if(input.isKeyDown(_options.get("up1")))
 		{
 			_raquette1.monter(fdelta/2);
 		}
@@ -114,7 +114,7 @@ public class GameWindow extends BasicGameState
 		}
 		
 		//balle raquette
-		if(testcolision(_balle,_raquette1, _raquette2, _options))
+		if(testcolision(_balle,_raquette1, _raquette2))
 		{
 			_balle.set_vitessex(_balle.get_vitessex() * (-1));
 		}
@@ -125,9 +125,8 @@ public class GameWindow extends BasicGameState
 	{
 		return _ID;
 	}
-	private boolean testcolision(Balle balle, Raquette raq1, Raquette raq2, HashMap<String, String> options)
+	private boolean testcolision(Balle balle, Raquette raq1, Raquette raq2)
 	{
-		System.out.println(balle.getMaxY() +">= ?" + raq1.getMaxY() + "&&" + balle.getMinY() + "<=" + raq1.getMinY());
 		if(balle.getMinY() <= raq1.getMaxY() && balle.getMaxY() >= raq1.getMinY())
 		{
 			if(balle.getMinX() <= raq1.getMaxX())

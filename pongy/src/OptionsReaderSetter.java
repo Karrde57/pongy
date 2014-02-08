@@ -12,13 +12,13 @@ import org.jdom2.input.SAXBuilder;
 public class OptionsReaderSetter
 {
 
-	static public HashMap<String, String> get()
+	static public HashMap<String, Integer> get()
 	{	
 		SAXBuilder sxb = new SAXBuilder();
 	    Document document = null;
 		try
 	      {
-	         document = sxb.build(new File("D:\\workspace\\repositorygit\\pongy\\pongy\\config\\options.xml"));
+	         document = sxb.build(new File(GameManager.class.getProtectionDomain().getCodeSource().getLocation().getPath()).getParent() + "\\config\\options.xml");
 	      }
 	      catch(Exception e)
 	      {
@@ -28,11 +28,11 @@ public class OptionsReaderSetter
 	    Element racine = document.getRootElement();
 		List options = racine.getChildren();
 		Iterator i = options.iterator();
-		HashMap res = new HashMap<String, String>();
+		HashMap res = new HashMap<String, Integer>();
 		while(i.hasNext())
 		{
 			Element courant = (Element)i.next();
-			res.put(courant.getName(), courant.getText());
+			res.put(courant.getName(), Integer.parseInt(courant.getText()));
 		}
 		return res;
 		
