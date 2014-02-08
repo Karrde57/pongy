@@ -7,6 +7,7 @@ import java.util.HashMap;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Input;
+import org.newdawn.slick.Music;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.TrueTypeFont;
 import org.newdawn.slick.geom.Rectangle;
@@ -24,13 +25,17 @@ public class GameMenu extends BasicGameState
 	private Rectangle _cursor;
 	private static String[] _MENUNAME = new String[]{"Play!", "Play with yout friend!", "Options", "Credits", "Exit" };
 	static private HashMap<String, Integer> _options = OptionsReaderSetter.get();
+	File directoryfile = new File(GameManager.class.getProtectionDomain().getCodeSource().getLocation().getPath());
 	@Override
 	public void init(GameContainer container, StateBasedGame sbg) throws SlickException
 	{
+		 Music openingMenuMusic = new Music(directoryfile.getParentFile().toString() + "\\music\\The_Uprising_Good.ogg");
+
+		    openingMenuMusic.loop();
 		// SET FONT
 		try 
 		{
-			InputStream inputStream = ResourceLoader.getResourceAsStream(new File(GameManager.class.getProtectionDomain().getCodeSource().getLocation().getPath()).getParent() + "\\config\\COMICATE.ttf");
+			InputStream inputStream = ResourceLoader.getResourceAsStream(directoryfile.getParent() + "\\config\\COMICATE.ttf");
 	        Font awtFont = Font.createFont(Font.TRUETYPE_FONT, inputStream);
 	        awtFont = awtFont.deriveFont(24f); // set font size
 	        _font = new TrueTypeFont(awtFont, false);

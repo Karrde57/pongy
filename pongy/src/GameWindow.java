@@ -1,12 +1,17 @@
 import java.awt.RenderingHints.Key;
+import java.io.File;
+import java.io.IOException;
 import java.util.HashMap;
 
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
+import org.newdawn.slick.openal.Audio;
+import org.newdawn.slick.openal.AudioLoader;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
+import org.newdawn.slick.util.ResourceLoader;
 
 
 public class GameWindow extends BasicGameState
@@ -21,11 +26,21 @@ public class GameWindow extends BasicGameState
 	private static int _TAILLEFRAMEX = _options.get("window_size_x");
 	private static int _TAILLEFRAMEY = _options.get("window_size_y");
 	private static int _TAILLERAQUETTEX = Raquette.getTAILLE_X();
-	private static int _TAILLERAQUETTEY = Raquette.getTAILLE_Y();;
+	private static int _TAILLERAQUETTEY = Raquette.getTAILLE_Y();
+	private Audio _oggEffect;
 	@Override
 	public void init(GameContainer arg0, StateBasedGame arg1)
 			throws SlickException
 	{
+		File directoryfile = new File(GameManager.class.getProtectionDomain().getCodeSource().getLocation().getPath());
+		try
+		{
+			_oggEffect = AudioLoader.getAudio("OGG", ResourceLoader.getResourceAsStream(directoryfile.getParentFile().toString() + "\\music\\pong.ogg"));
+		} catch (IOException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		_raquette1 = new Raquette(0,_TAILLEFRAMEY/2-_TAILLERAQUETTEY/2);
 		_raquette2 = new Raquette(_TAILLEFRAMEX-_TAILLERAQUETTEX ,_TAILLEFRAMEY/2-_TAILLERAQUETTEY/2);
 		_balle = new Balle(_TAILLEFRAMEX/2, _TAILLEFRAMEY/2,10);
@@ -118,11 +133,13 @@ public class GameWindow extends BasicGameState
 		{
 			_balle.set_vitessex((int) (_balle.get_vitessex() * (-1)));
 			_balle.set_vitessey((int) (_balle.get_vitessey() + (_raquette1.getCenterY()-_balle.getCenterY())/30) * (-1));
+			_oggEffect.playAsSoundEffect(1.0f, 1.0f, false);
 		}
 		if(testcolisiondroite(_balle,_raquette2))
 		{
 			_balle.set_vitessex((int) (_balle.get_vitessex() * (-1)));
 			_balle.set_vitessey((int) (_balle.get_vitessey() + (_raquette2.getCenterY()-_balle.getCenterY())/30) * (-1));
+			_oggEffect.playAsSoundEffect(1.0f, 1.0f, false);
 		}
 		
 	}
