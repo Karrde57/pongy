@@ -114,9 +114,15 @@ public class GameWindow extends BasicGameState
 		}
 		
 		//balle raquette
-		if(testcolision(_balle,_raquette1, _raquette2))
+		if(testcolisiongauche(_balle,_raquette1))
 		{
-			_balle.set_vitessex(_balle.get_vitessex() * (-1));
+			_balle.set_vitessex((int) (_balle.get_vitessex() * (-1)));
+			_balle.set_vitessey((int) (_balle.get_vitessey() + (_raquette1.getCenterY()-_balle.getCenterY())/30) * (-1));
+		}
+		if(testcolisiondroite(_balle,_raquette2))
+		{
+			_balle.set_vitessex((int) (_balle.get_vitessex() * (-1)));
+			_balle.set_vitessey((int) (_balle.get_vitessey() + (_raquette2.getCenterY()-_balle.getCenterY())/30) * (-1));
 		}
 		
 	}
@@ -125,13 +131,19 @@ public class GameWindow extends BasicGameState
 	{
 		return _ID;
 	}
-	private boolean testcolision(Balle balle, Raquette raq1, Raquette raq2)
+	private boolean testcolisiongauche(Balle balle, Raquette raq1)
 	{
 		if(balle.getMinY() <= raq1.getMaxY() && balle.getMaxY() >= raq1.getMinY())
 		{
 			if(balle.getMinX() <= raq1.getMaxX())
 					return true;
 		}
+
+		return false;
+	}
+	private boolean testcolisiondroite(Balle balle, Raquette raq2)
+	{
+
 		if(balle.getMinY() <= raq2.getMaxY() && balle.getMaxY() >= raq2.getMinY())
 		{
 			if(balle.getMaxX() >= raq2.getMinX())
@@ -139,6 +151,7 @@ public class GameWindow extends BasicGameState
 		}
 		return false;
 	}
+	
 	
 
 }
